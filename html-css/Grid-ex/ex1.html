@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .cont {
+            display:inline-grid;
+            grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .cont div {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        #living-room {
+            grid-column: 1/6;
+            grid-row: 1/3;
+        }
+
+        #kitchen {
+            grid-column: 1/3;
+            grid-row: 3/5;
+        }
+
+        #closet {
+            grid-column: 1/3;
+            grid-row: 5/6;
+        }
+
+        #bathroom {
+            grid-column: 4/6;
+            grid-row: 3/4;
+        }
+
+        #bedroom {
+            grid-column: 4/6;
+            grid-row: 4/6;
+        }
+
+        #holl {
+            grid-column: 3/4;
+            grid-row: 3/6;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div id="bedroom">bed</div>
+        <div id="kitchen">kit</div>
+        <div id="living-room">liv</div>
+        <div id="bathroom">bath</div>
+        <div id="closet">clos</div>
+        <div id="holl">holl</div>
+        
+    </div>
+</body>
+</html>
