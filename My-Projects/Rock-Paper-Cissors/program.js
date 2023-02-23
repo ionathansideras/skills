@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function(){
    
-    let buttons = document.querySelectorAll('button');
+    let buttons = document.querySelectorAll('img');
     let playerScore = 0;
     let computerScore = 0;
-    let random;
     let round;
     let player;
+    let randomV;
 
     // this function resets the veriables at the end of the game
     function resetGame(){
         playerScore = 0;
         computerScore = 0;
-        document.querySelector('#playerScore').innerHTML = `Your Score: ${playerScore}`;
-        document.querySelector('#computersScore').innerHTML = `Computer Score: ${computerScore}`;
+        document.querySelector('#playerScore').innerHTML = `You: ${playerScore}`;
+        document.querySelector('#computersScore').innerHTML = `Computer: ${computerScore}`;
         document.querySelector('#round').innerHTML = 'Points';
     };
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(playerScore == 5 || computerScore == 5){
 
             if(playerScore == 5){
-                document.querySelector('h3').innerHTML = 'You Win!';
+                document.querySelector('h3').innerHTML = 'You Won!';
                 resetGame()
             }
 
@@ -34,40 +34,40 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // this function returns a winner of one round
     function roundWinner(playerinput,computerSelection){
-        let computerValue = computerSelection;
+        
         //it returns who won this round
-        if(computerValue == 'Paper' && playerinput == 'Paper'){
+        if(computerSelection == 'Paper' && playerinput == 'Paper'){
             return "Tie";
         }
-        else if(computerValue == 'Rock' && playerinput == 'Rock'){
+        else if(computerSelection == 'Rock' && playerinput == 'Rock'){
             return "Tie";
         }
-        else if(computerValue == 'Cissors' && playerinput == 'Cissors'){
+        else if(computerSelection == 'Cissors' && playerinput == 'Cissors'){
             return "Tie";
         }
-        else if(computerValue == 'Cissors' && playerinput == 'Rock'){
+        else if(computerSelection == 'Cissors' && playerinput == 'Rock'){
+            return "Player +1";
+        }
+        else if(computerSelection == 'Rock' && playerinput == 'Cissors'){
             return "Computer +1";
         }
-        else if(computerValue == 'Rock' && playerinput == 'Cissors'){
+        else if(computerSelection == 'Rock' && playerinput == 'Paper'){
             return "Player +1";
         }
-        else if(computerValue == 'Rock' && playerinput == 'Paper'){
-            return "Player +1";
-        }
-        else if(computerValue == 'Paper' && playerinput == 'Rock'){
+        else if(computerSelection == 'Paper' && playerinput == 'Rock'){
             return "Computer +1";
         }
-        else if(computerValue == 'Paper' && playerinput == 'Cissors'){
+        else if(computerSelection == 'Paper' && playerinput == 'Cissors'){
             return "Player +1";
         }
-        else if(computerValue == 'Cissors' && playerinput == 'Paper'){
+        else if(computerSelection == 'Cissors' && playerinput == 'Paper'){
             return "Computer +1";
         };
     };
 
     // this finction gets a random value from the computer
     function randomValue(){
-        random = Math.floor(Math.random() * 3);
+        let random = Math.floor(Math.random() * 3);
         if (random == 0){
             random = 'Rock'
         }
@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function(){
         else{
             random = 'Cissors'
         };
+        
+        return random;
     };
 
     // this funtion creates updates the veriables when someone gets apoint 
@@ -91,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // updates the DOM with the curent veriables
     function update(){
-        document.querySelector('#playerScore').innerHTML = `Your Score: ${playerScore}`;
-        document.querySelector('#computersScore').innerHTML = `Computer Score: ${computerScore}`;
+        document.querySelector('#playerScore').innerHTML = `You: ${playerScore}`;
+        document.querySelector('#computersScore').innerHTML = `Computer: ${computerScore}`;
         document.querySelector('#round').innerHTML = round;
     };
 
@@ -103,12 +105,16 @@ document.addEventListener('DOMContentLoaded', function(){
         buttons[i].onclick = function(){
             
             //runs all the above funtions 
-            player = buttons[i].innerHTML;
-            randomValue();
-            round = roundWinner(random,player);
+            player = buttons[i].getAttribute('value');
+            randomV = randomValue();
+            round = roundWinner(player,randomV);
             game();
             update();
             winner();
+
+            console.log("myschoice",player)
+            console.log("randomV",randomV)
+            console.log("round winner",round)
         };
     };
 });
