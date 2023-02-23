@@ -21,23 +21,24 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     document.querySelector('.results').onclick = function(){
-
+        // einai 0 to afinei na einai 0
         if (document.querySelector('h1').innerHTML == holder){
             document.querySelector('h1').innerHTML == holder;
         }
 
+        //an einai apo ta parakatw to vgazei error
         else if(count == "0/0" || count == "00/0" || count == "000/0" || count == "0000/0"){
             document.querySelector('h1').innerHTML = "Error";
         }
 
-        else if (document.querySelector('h1').innerHTML == count){
+        if(document.querySelector('h1').innerHTML == count){
             try {
-                eval(count);
-                count = eval(count);
+                res = math.evaluate(count);
+                count = res;
                 document.querySelector('h1').innerHTML = count;
               }
             catch (error) {
-                document.querySelector('h1').innerHTML = "Error";
+                document.querySelector('h1').innerHTML = "Errorr";
               }           
         } 
 
@@ -45,9 +46,5 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector('h1').innerHTML = "Error";
             count = '';
         } 
-
-      
     };
-    
-    
 });
