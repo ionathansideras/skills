@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 document.querySelector('h1').innerHTML = count;
               }
             catch (error) {
-                document.querySelector('h1').innerHTML = "Errorr";
+                document.querySelector('h1').innerHTML = "Error";
               }           
         } 
 

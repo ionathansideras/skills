@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    font-family: roboto;
+    background-color: rgb(253, 236, 0);
+    display: grid;
+    grid-template-rows: 100px 60px 150px 240px 100px;
+    margin: 0;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.track{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helper{
+    padding: 0px 10px 0px 10px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0;
+    background-color: rgb(54, 54, 54);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+}
+
+
+.flex > h2 {
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img:hover{
+  height: 240px;
+}
+
+img {
+    width: 230px;
+    height: 230px;
+}
+
+p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 30px;
+    background-color: rgb(85, 85, 85);
+    margin: 0;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+button{
+    width: 250px;
+    height: 70px;
+    background-color: rgb(54, 54, 54);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    
+}
+
+button:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+button:active{
+    color: black;
+    background-color: rgb(177, 177, 177);
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.but-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .buttons{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex > h2{
+        width: 100px;
+        margin: 0;
+        font-size: 15px;
+    }
+    img{
+        width: 130px;
+        height: 130px;
+    }
+    img:hover{
+        height: 130px;
+    }
+    body{
+        grid-template-rows: 100px 50px 70px 1fr 50px;
+    }
+}
+     
