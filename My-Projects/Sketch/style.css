@@ -3,9 +3,18 @@
 body {
     font-family: roboto;
     background-color: #AED6F1 ;
+    margin: 0;
 }
 h2 {
     text-align: center;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    background-color: rgb(105, 105, 105);
+    transition: opacity 0.3s;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 70px;
 }
 
 .flex-main{
@@ -48,8 +57,27 @@ button:active{
     padding-right: 50px;
 }
 
-h4{
-    margin-left: 5px;
+.colorPick > input {
+    padding-left: 5px;
+}
+
+label{
+    margin-top: 10px;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(59, 163, 255);
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+label:hover{
+    opacity: 0.8;
+}
+
+label:active {
+    opacity: 0.6;
 }
 
 p{
@@ -76,3 +104,15 @@ p{
     border-radius: 50%;
   }
   
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 30px;
+    background-color: rgb(85, 85, 85);
+    margin: 0;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+  }

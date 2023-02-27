@@ -11,7 +11,8 @@ function getSize(){
     //dimiourgei ta divs
     for(let i = 0; i < (userInput*userInput); i++){
         const pixels = document.createElement('div');
-        pixels.setAttribute('style', 'display: grid;');
+        //ta vazei class
+        pixels.setAttribute('class', 'pixels');
         //ta prosthetei sto container ws childs
         container.appendChild(pixels);
     };
@@ -52,9 +53,12 @@ container.addEventListener('mouseup', function(){
 
 // afou fortosoun ola to divs tha exei node lista apo ola ta div mesa 
 function colorIt(){
-        let divs = document.querySelectorAll('div');
+        let divs = document.querySelectorAll('.pixels');
         //gia kathe div vazoume ena event listener
         divs.forEach(function(div){
+            //otan treksoyme to xroma tha ginei aspro
+            div.style.backgroundColor = 'white';      
+
             div.addEventListener('mouseover', () =>{
                 //otan to flag einai trou tote mporoume na zografisoume
                 if(clickFlag === true){
@@ -62,12 +66,11 @@ function colorIt(){
                 div.style.backgroundColor = userColor;
                 };
             });
+
             div.addEventListener('click', () =>{
                 //alazoume to xroma apo to div on click
                 div.style.backgroundColor = userColor;
             });
-            //otan to ksana treksoyme to xroma tha ginei aspro
-            div.style.backgroundColor = 'white';      
         });
 };
 colorIt();
@@ -86,7 +89,7 @@ document.querySelector('.eraser').addEventListener('click', function(){
     
 });
 
-//otan click to xroma erxete pali se ayto pou htan
+//otan click to xroma erxete pali se ayto pou htan prin
 document.querySelector('.backColor').addEventListener('click', function(){
     document.querySelector('.backColor').style.backgroundColor = 'gray';
     document.querySelector('.eraser').style.backgroundColor = 'rgb(59, 163, 255)';
