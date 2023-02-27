@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Do you like drawing? this is the perfect website for you!">
+    <meta name="author" content="Ionathan Sideras">
+    <title>Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="program.js" defer></script>
+</head>
+<body>
+    <h2>Pixel Art Painting</h2>
+    
+    <main>
+
+        <span class="colorPick">
+            <input type="color" id="color" value="#000000">
+            <h4>Color Picker</h4>
+        </span>
+
+        <div class="container"></div> 
+
+        <span class="buttonPick">
+            <button class="clear">Clear</button>
+
+            <button class="eraser">Eraser</button>
+
+            <button class="backColor">Color</button>
+        </span>
+        
+    </main>
+
+    <p>16x16</p>
+    
+    <span class="size">
+        <input type="range" id="userInput" min="16" max="64" value="16">
+    </span>
+    
+
+</body>
+</html>
