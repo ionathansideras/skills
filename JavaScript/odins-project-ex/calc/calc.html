@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        function add(a,b) {
+            return a+b;
+        };
+        console.log(add(1,2));
+
+
+        function subtract(a,b) {
+            return a-b;
+        };
+        console.log(subtract(5,3));
+
+
+        function sum(element) {
+            let res = element.reduce(function(total, element){
+                return total + element;
+            });
+            return res;
+        };
+        console.log(sum([7,11]));
+
+
+        function multiply(element) {
+            let res = element.reduce(function(total, element){
+                return total * element;
+            });
+            return res;
+        };
+        console.log(multiply([2,4,6,8,10,12,14]));
+
+
+        function power(a,b) {
+            let res = Math.pow(a,b);
+            return res;
+        };
+        console.log(power(4,3))
+
+
+        function factorial(num) {
+            let res = num;
+            for(let i = num-1; i > 0; i--){
+                res *= i;
+            }
+            return res;
+        };
+        console.log(factorial(100));
+
+    </script>
+</body>
+</html>
