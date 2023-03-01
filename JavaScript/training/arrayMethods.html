@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // to map epistrefei to array me allages, einai gia na epeksergazese to array
+        const power = [1, 2, 3, 4, 5];
+        const sqr = power.map(function(element){
+            const power2 = element**2;
+            return power2;
+        });
+
+        console.log(sqr);
+
+        // me filter mporeis na vreis pragmata mesa apo to array
+        const grades = [30,50,52,74,100,80,89,90];
+        const topgrade = grades.filter(function(element){
+            if(element >= 80){
+                return true;
+            }
+        });
+        console.log(topgrade);
+
+        // me to reduce mporeis na perioriseis to array se mia timi px to sum tou array
+        const damage = [10,20,30,10];
+        const sumdamage = damage.reduce(function(total, element){
+            return total + element;
+        });
+        console.log(sumdamage);
+
+        // bazei se seira tous arithmous fthinousa h afksousa
+        const numbers = [1,3,56,7,8,5,4,65,78,100];
+        const order = numbers.sort(function(a,b){
+            // kanei compare tous dio arithmous
+
+            // afksousa
+            //return a - b;
+
+            // fthinousa 
+            return b - a;
+        });
+        console.log(...order);
+
+        // to some() epistrefei true or false otan kati einai h den einai mesa sto array
+        const findit = ['kakao','banana',90];
+        const therein = findit.some(function(element){
+            if(element == 90){
+                return true;
+            };
+        });
+        console.log(therein);
+
+        // to every an ola sto array einai idia kanei return true an oxi kanei false
+        const everyit = [90,90,90];
+        const onthere = everyit.every(function(element){
+            return element == 90;
+        });
+        console.log(onthere);
+
+        // to find kanei rerunt to proto pragma pou tha vrei sto array simfona me ta kritiria mas
+        const otinanai = [123,353,7513,101];
+        const aksia = otinanai.find(function(element){
+            return element == 101;
+        });
+        console.log(aksia);
+ 
+        // to findIndex() epistrefei thn thesi apo kapio stixio
+        const anarray = ['kakao', 'banana', 'apple'];
+        const thesi = anarray.findIndex(function(element){
+            return element == 'apple';
+        });
+        console.log(thesi);
+
+
+    </script>
+</body>
+</html>
