@@ -8,49 +8,46 @@
 </head>
 <body>
     <script>
-        const people = [
-        {
-            name: "Carly",
-            yearOfBirth: 2018,
-        },
-        {
-            name: "Ray",
-            yearOfBirth: 1962,
-            yearOfDeath: 2011,
-        },
-        {
-            name: "Jane",
-            yearOfBirth: 1912,
-            yearOfDeath: 1941,
-        }
+         const people = [
+            {
+                name: "Carly",
+                yearOfBirth: 1066,
+            },
+            {
+                name: "Ray",
+                yearOfBirth: 1962,
+                yearOfDeath: 2011,
+            },
+            {
+                name: "Jane",
+                yearOfBirth: 1912,
+                yearOfDeath: 1991,
+            },
         ];
 
         function oldest(element){
-            let order = element.sort(function(a,b){
-                
+
+            // epistrefei ta stixia pou tiroun tis proipothesis
+            let res = element.filter(function(n){
+                let final = n.yearOfDeath - n.yearOfBirth;
+                return final;
+            });
+            // ta vazei se sira
+            let order = res.sort(function(a,b){                
                 let first;
                 let second;
-
-                if(a.yearOfDeath && a.yearOfBirth == true){
-                    first = a.yearOfDeath - a.yearOfBirth;
-                }
-                if(b.yearOfDeath && b.yearOfBirth == true){
-                    second = b.yearOfDeath - b.yearOfBirth;
-                }
-
+                first = a.yearOfDeath - a.yearOfBirth;
+                second = b.yearOfDeath - b.yearOfBirth;
+                
                 if(second < first){
                     return -1;
                 }
                 else{
                     return 1;
-                }
+                }               
             });
-
-            let res = element.map(function(n){
-                return n.name;
-            });
-
-            return res[0];
+            // epistrefei to proto onoma
+            return order[0].name;
         };
 
         console.log(oldest(people));
