@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form').onsubmit = () => {
         //kaloume to api
         fetch('https://api.exchangerate.host/latest')
-        //kai to kanoume json file
+        //turns in to a json file
         .then(responce => {
             return responce.json()
         })  
