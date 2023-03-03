@@ -43,7 +43,7 @@ buttons.forEach(function(button){
 // this function shows the results
 function getResoults(){
     let num1 = '0';
-    let num2;
+    let num2 = '0';
     let operator = '+'; 
     let results;
     
@@ -51,7 +51,7 @@ function getResoults(){
         // when the display == with an operator
         if(display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*'){  
             //we execute the operate function and store our results 
-            results = operate(~~num2,operator,~~num1);
+            results = operate(Number(num2),operator,Number(num1));
             // operator = new oprator
             operator = display[i];
             //num2 gets the value of the results 
@@ -64,18 +64,27 @@ function getResoults(){
             num1 += display[i];
         }       
     };
+    results = operate(Number(num2),operator,Number(num1));
     
-    results = operate(~~num2,operator,~~num1);
-    document.querySelector('h1').innerHTML = results;
-    display=[results];
-
-    if(document.querySelector('h1').innerHTML == 'NaN' || document.querySelector('h1').innerHTML == 'Infinity'){
-        document.querySelector('h1').innerHTML = 'OOPS';
+    // checks if results has a decimal point
+    if(results % 1 != 0){
+        let desti = results.toString().split('.')[1];
+        //if it has more than 3
+        if(desti.length>3){
+            // we force it to have max 4 digits 
+            results = results.toFixed(4);
+            document.querySelector('h1').innerHTML = results;
+        }
+        else{
+            //else leave it as it is
+            document.querySelector('h1').innerHTML = results;
+        }
     }
-    
-        
-    
-    
+    else{
+        document.querySelector('h1').innerHTML = results;
+    }
+
+    display=[results];
 };
 
 // when the results button is clicked
