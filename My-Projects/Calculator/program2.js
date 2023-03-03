@@ -40,31 +40,49 @@ buttons.forEach(function(button){
     });
 });
 
-// when the results button is clicked
-document.querySelector('.results').addEventListener('click', function(){
-    
-    let num1 = '';
-    let num2= '';
-    let operator = ''; 
+// this function shows the results
+function getResoults(){
+    let num1 = '0';
+    let num2;
+    let operator = '+'; 
     let results;
     
     for(let i = 0; i < display.length; i++){
-        
-        if(display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*'){
+        // when the display == with an operator
+        if(display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*'){  
+            //we execute the operate function and store our results 
+            results = operate(~~num2,operator,~~num1);
+            // operator = new oprator
             operator = display[i];
-            results = operate(~~num1,operator,~~num2)
+            //num2 gets the value of the results 
             num2 = results;
-            num1 ='';                
-            operator = '';
-            
+            // and we reset the num1
+            num1 ='';   
         }                
         else{
+            // if display[i] is digit the num1 veriable gets updated
             num1 += display[i];
         }       
-        console.log(results);
     };
+    
+    results = operate(~~num2,operator,~~num1);
+    document.querySelector('h1').innerHTML = results;
+    display=[results];
 
+    if(document.querySelector('h1').innerHTML == 'NaN' || document.querySelector('h1').innerHTML == 'Infinity'){
+        document.querySelector('h1').innerHTML = 'OOPS';
+    }
+    
+        
+    
+    
+};
+
+// when the results button is clicked
+document.querySelector('.results').addEventListener('click', function(){
+    getResoults();
 });
+
 //on click clear
 document.querySelector('.clear').addEventListener('click', function(){
     // the display array gets empty
