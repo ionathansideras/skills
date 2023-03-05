@@ -45,11 +45,12 @@ function getResoults(){
     let num1 = '0';
     let num2 = '0';
     let operator = '+'; 
-    let results;
-    
+    let results = [];
+    let flag = false;
     for(let i = 0; i < display.length; i++){
+        
         // when the display == with an operator
-        if(display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*'){  
+        if((display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*')&& flag == false){  
             //we execute the operate function and store our results 
             results = operate(Number(num2),operator,Number(num1));
             // operator = new oprator
@@ -58,38 +59,35 @@ function getResoults(){
             num2 = results;
             // and we reset the num1
             num1 ='';   
+            flag = true;
         }                
         else{
             // if display[i] is digit the num1 veriable gets updated
             num1 += display[i];
+            flag = false;
         }       
     };
     results = operate(Number(num2),operator,Number(num1));
-    
-    // checks if results has a decimal point
-    if(results % 1 != 0){
-        let desti = results.toString().split('.')[1];
-        //if it has more than 3
-        if(desti.length>3){
-            // we force it to have max 4 digits 
-            results = results.toFixed(4);
-            document.querySelector('h1').innerHTML = results;
-        }
-        else{
-            //else leave it as it is
-            document.querySelector('h1').innerHTML = results;
-        }
-    }
-    else{
-        document.querySelector('h1').innerHTML = results;
-    }
-
     display=[results];
+    
+    if(display == 'NaN' || display == 'Infinity'){
+        display = ['OOPS!'];
+    }
+    document.querySelector('h1').innerHTML = display;
 };
 
 // when the results button is clicked
 document.querySelector('.results').addEventListener('click', function(){
     getResoults();
+});
+
+//if back is clicked it deletes the last element
+document.querySelector('.back').addEventListener('click', function(){
+    display.pop();
+    document.querySelector('h1').innerHTML = display.join('');
+    if(display.length == 0){
+        document.querySelector('h1').innerHTML = '0';
+    }
 });
 
 //on click clear
