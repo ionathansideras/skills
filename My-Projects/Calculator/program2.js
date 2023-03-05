@@ -54,7 +54,7 @@ function getResoults(){
     for(let i = 0; i < display.length; i++){
         
         // when the display == with an operator
-        if((display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*')&& flag == false){  
+        if((display[i] == '+' || display[i] == '-' || display[i] == '/' || display[i] == '*') && flag == false){  
             //we execute the operate function and store our results 
             results = operate(Number(num2),operator,Number(num1));
             // operator = new oprator
