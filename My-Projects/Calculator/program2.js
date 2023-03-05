@@ -37,6 +37,10 @@ buttons.forEach(function(button){
         display.push(button.value);
         //showing the array
         document.querySelector('h1').innerHTML = display.join('');
+        if(display.length >= 12){
+            display.pop();
+            document.querySelector('h1').innerHTML = display.join('');
+        }
     });
 });
 
@@ -69,11 +73,32 @@ function getResoults(){
     };
     results = operate(Number(num2),operator,Number(num1));
     display=[results];
-    
+
+    let newD = '';
+
     if(display == 'NaN' || display == 'Infinity'){
         display = ['OOPS!'];
     }
-    document.querySelector('h1').innerHTML = display;
+    // if length is > 12
+    if(display.toString().length > 12){
+        // we pass the values to this new str
+        newD = display.join('');
+        display = [];
+        // loop 12 times
+        for(let i = 0; i < 12; i++){
+            //we add only the first 11 characters 
+            if(i > 11){
+                break;
+            }
+            display.push(newD[i]);
+        }
+        
+        document.querySelector('h1').innerHTML = display.join('');
+    }
+    else{
+        document.querySelector('h1').innerHTML = display;
+    }
+    
 };
 
 // when the results button is clicked
