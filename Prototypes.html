@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //costractor
+        /*function books(title, author, pages, read){
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = read;
+        };
+        
+        const first = new books('Art Of War','xie xie','213','not read');
+
+        function info(e){
+            let res = `The ${e.title} by ${e.author}, ${e.pages} pages, ${e.read} yet`;
+            return res;
+        };
+
+        console.log(info(first));*/
+
+
+        // we create a constractor
+       /* function Student() {
+        }
+        // AND WE set its prototypes to be =>
+        Student.prototype.sayName = function() {
+            console.log(this.name)
+        }
+        Student.prototype.sayGrade = function() {
+            console.log(this.grade)
+        }
+        // we create a constractor
+        function EighthGrader(name) {
+            this.name = name
+            this.grade = 8
+        }
+
+        //and we set its prototype to be the students and its prototypes
+        EighthGrader.prototype = Object.create(Student.prototype)
+        // new we use this constractor to pass a value 
+        const carl = new EighthGrader("carl")
+
+
+        carl.sayName() // console.logs "carl"
+        carl.sayGrade() // 8 */
+
+
+        // emty constractor
+        function Student() {
+        }
+        // AND WE set its prototypes to be =>
+        Student.prototype.sayName = function() {
+            console.log(this.name)
+        }
+        // we create a constractor
+        function EighthGrader(name) {
+            this.name = name
+            this.grade = 8
+        }
+
+        // and we pass the students prototypes 
+        EighthGrader.prototype = Object.create(Student.prototype);
+        
+        // we create a constractor
+        function NinthGrader(name) {
+            this.name = name
+            this.grade = 9
+        }
+
+        // and we set the EighthGrader prototypes that they already have the students prototypes
+        NinthGrader.prototype = Object.create(EighthGrader.prototype);
+        // we pass a value
+        const carl = new NinthGrader("carl")
+        //the sayName prototype function will work becose they have the same inheritachz
+        carl.sayName()
+        console.log(carl);
+
+        
+    </script>
+    
+</body>
+</html>
