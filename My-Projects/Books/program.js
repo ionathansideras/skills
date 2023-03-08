@@ -33,6 +33,8 @@ function loop(array){
         button.setAttribute('class', 'but');
         artical.appendChild(button);
     }
+    
+    remove();
 };
 
 function clear(){
@@ -44,7 +46,7 @@ function clear(){
 
 
 // elenxoume to form otan kanei submit
-document.querySelector('form').onsubmit = () => {
+document.querySelector('#form').onsubmit = () => {
     // pernoume ta inputs values 
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
@@ -67,11 +69,17 @@ document.querySelector('form').onsubmit = () => {
     clear();
     loop(myLibrary);
 
-    remove();
-
+    let popup = document.querySelector('#form');
+    popup.classList.remove('open-form');
     //stop submiting
     return false;
 }
+
+document.querySelector('#add').addEventListener('click', function(){
+    let popup = document.querySelector('.form');
+    popup.classList.add('open-form');
+});
+
 //kanei remove to object pou theloume
 function remove(){
     let remove = document.querySelectorAll('.but');
@@ -80,9 +88,10 @@ function remove(){
             myLibrary.splice(button.value, 1);
             clear();
             loop(myLibrary);
+            console.log(myLibrary);
         })
     })
-}
+};
 
 
 

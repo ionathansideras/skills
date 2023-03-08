@@ -6,18 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="program.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <input id="title" type="text">
-        <input id="author" type="text">
-        <input id="pages" type="text">
-        <label for="read">Have you read it?</label>
-        <input id="read" type="checkbox">
+    <header>
+        <h2>Libary</h2>
+    </header>
+    <button id="add">+Add new book</button>
+    <form id="form" class="form">
+        <h2>Add book</h2>
+        <input id="title" type="text" placeholder="Title" required>
+        <input id="author" type="text" placeholder="Author" required>
+        <input id="pages" type="text" placeholder="Pages" required>
+        <div>
+            <label for="read">Have you read it?</label>
+            <input id="read" type="checkbox">
+        </div>
         <input type="submit" class="sub">
     </form>
     <main>
 
     </main>
+
+    <footer>
+        Website made by Ionathan Sideras &#127757;
+    </footer>
 </body>
 </html>
