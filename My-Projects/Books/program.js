@@ -24,6 +24,7 @@ function loop(array){
             if(obj[j] == 'Read'){
                 addIt.innerHTML = obj[j];
                 addIt.setAttribute('class','readed');
+                addIt.setAttribute('id','read')
                 addIt.setAttribute('value',i);
                 artical.appendChild(addIt);
                 main.appendChild(artical);
@@ -31,6 +32,7 @@ function loop(array){
             else if(obj[j] == 'Not read'){
                 addIt.innerHTML = obj[j];
                 addIt.setAttribute('class','not-readed');
+                addIt.setAttribute('id','read');
                 addIt.setAttribute('value',i);
                 artical.appendChild(addIt);
                 main.appendChild(artical);
@@ -49,7 +51,7 @@ function loop(array){
         button.setAttribute('class', 'but');
         artical.appendChild(button);
     }
-    
+    readed();
     remove();
 };
 
@@ -89,7 +91,6 @@ document.querySelector('#form').onsubmit = () => {
     popup.classList.remove('open-form');
     let cover = document.querySelector('.cover');
     cover.classList.remove('open-cover');
-
     //stop submiting
     return false;
 }
@@ -120,6 +121,19 @@ function remove(){
     })
 };
 
-
-
-
+function readed(){
+    let readbut = document.querySelectorAll('#read');
+    readbut.forEach(function(button, i){
+        button.addEventListener('click',function(){
+            if(myLibrary[i-1].read == 'Not read'){
+                myLibrary[i-1].read = 'Read';
+                clear();
+                loop(myLibrary);
+            }else {
+                myLibrary[i-1].read = 'Not read';
+                clear();
+                loop(myLibrary);
+            }
+        })
+    });
+};
