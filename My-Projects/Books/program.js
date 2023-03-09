@@ -2,7 +2,6 @@ let myLibrary = [];
 
 function Book() {
     // the constructor...
-    
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -22,9 +21,26 @@ function loop(array){
 
         for(let j in obj){
             let addIt = document.createElement('div');
-            addIt.innerHTML = obj[j];
-            artical.appendChild(addIt);
-            main.appendChild(artical);
+            if(obj[j] == 'Read'){
+                addIt.innerHTML = obj[j];
+                addIt.setAttribute('class','readed');
+                addIt.setAttribute('value',i);
+                artical.appendChild(addIt);
+                main.appendChild(artical);
+            }
+            else if(obj[j] == 'Not read'){
+                addIt.innerHTML = obj[j];
+                addIt.setAttribute('class','not-readed');
+                addIt.setAttribute('value',i);
+                artical.appendChild(addIt);
+                main.appendChild(artical);
+            }
+            else{
+                addIt.innerHTML = obj[j];
+                artical.appendChild(addIt);
+                main.appendChild(artical);
+            }
+            
         }
 
         let button = document.createElement('button');
@@ -71,13 +87,25 @@ document.querySelector('#form').onsubmit = () => {
 
     let popup = document.querySelector('#form');
     popup.classList.remove('open-form');
+    let cover = document.querySelector('.cover');
+    cover.classList.remove('open-cover');
+
     //stop submiting
     return false;
 }
 
+document.querySelector('.close').addEventListener('click', function(){
+    let popup = document.querySelector('#form');
+    popup.classList.remove('open-form');
+    let cover = document.querySelector('.cover');
+    cover.classList.remove('open-cover');
+});
+
 document.querySelector('#add').addEventListener('click', function(){
     let popup = document.querySelector('.form');
     popup.classList.add('open-form');
+    let cover = document.querySelector('.cover');
+    cover.classList.add('open-cover');
 });
 
 //kanei remove to object pou theloume
@@ -88,11 +116,9 @@ function remove(){
             myLibrary.splice(button.value, 1);
             clear();
             loop(myLibrary);
-            console.log(myLibrary);
         })
     })
 };
-
 
 
 
