@@ -1,8 +1,14 @@
+// Check if local storage exists
+if(!localStorage.getItem('myLibrary')){
+  // If it doesn't exist, initialize it as an empty array
+  localStorage.setItem('myLibrary', JSON.stringify([]));
+}
+
 let myLibrary = [];
 
-function Book() {
-  // the constructor...
-}
+myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+
+loop(myLibrary);
 
 function addBookToLibrary(title, author, pages, read) {
   // do stuff here
@@ -48,6 +54,9 @@ function loop(array) {
     button.setAttribute("class", "but");
     artical.appendChild(button);
   }
+
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+
   readed();
   remove();
 }

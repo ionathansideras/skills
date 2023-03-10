@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+        // Check if local storage exists
+        if(!localStorage.getItem('yolo')){
+            // If it doesn't exist, initialize it as an empty array
+            localStorage.setItem('yolo', JSON.stringify([]));
+        }
+
+        // Get the current array from local storage and parse it
+        let yolo = [];
+        
+        yolo = JSON.parse(localStorage.getItem('yolo'));
+
+        function Consta(name){
+            this.name = name;
+        };
+
+        let inp = prompt();
+        // Create a new object and add it to the array
+        yolo.push(new Consta(inp));
+
+        // Convert the array of objects into a JSON string and store it back into local storage
+        localStorage.setItem('yolo', JSON.stringify(yolo));
+        
+        for(let i = 0; i < yolo.length; i++){
+            let obj = yolo[i];
+            for(let j in obj){
+                let body = document.querySelector('body');
+                let addit = document.createElement('h2');
+                addit.innerHTML = obj[j];
+                body.appendChild(addit);
+
+            }
+
+        }
+        
+    </script>
+    
+</body>
+</html>
