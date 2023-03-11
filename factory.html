@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // we have a function and we will inherige it to an othe function
+        const inheritage = () => {
+            const hello = () => {
+                console.log('hello');
+            }
+            return {hello};
+        };
+
+        const adding = function(age, name){
+            // inherige the functios of the above function
+            const {hello} = inheritage();
+            return {age, name, hello}
+        }
+
+        let jeff = adding('jeff', 23);
+
+        console.log(jeff);
+        jeff.hello();
+
+    </script>
+</body>
+</html>
