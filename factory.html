@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-
+        /*
         // we have a function and we will inherige it to an othe function
         const inheritage = () => {
             const hello = () => {
@@ -26,7 +26,45 @@
         let jeff = adding('jeff', 23);
 
         console.log(jeff);
-        jeff.hello();
+        jeff.hello();   */
+
+        // factory function gia na ftiaksoume enan paixth
+        const Player = (name, level) => {
+            // kathorizoume tin zoh tou kai merikes methodous
+            let health = level * 2;
+            const getLevel = () => level;
+            const getName  = () => name;
+            const die = () => {
+                console.log('you dead dead');
+            };
+
+            // method to change the health 
+            const damage = x => {
+                health -= x;
+                if (health <= 0) {
+                    die();
+                }
+            };
+            // method to make the game work
+            const attack = enemy => {
+                //if the players level < enemy level 
+                if (level < enemy.getLevel()) {
+                    damage(1);
+                    console.log(`${enemy.getName()} has damaged ${name}`);
+                }
+                if (level >= enemy.getLevel()) {
+                    enemy.damage(1);
+                    console.log(`${name} has damaged ${enemy.getName()}`);
+                }
+            };
+
+            // we return an object 
+            return {attack, damage, getLevel, getName};
+        };
+
+        const jimmie = Player('jim', 10);
+        const badGuy = Player('jeff', 5);
+        jimmie.attack(badGuy);
 
     </script>
 </body>
