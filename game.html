@@ -14,7 +14,7 @@
             // h zwh toy paixti einai *2 to lvl tou
             let health = lvl*2;
 
-            // prepei na ftiaksoume methods gia na pernoume ta stixia pou xriazomaste
+            // prepei na ftiaksoume methods gia na pernoume ta stixia pou xriazomaste kai apo allous paixtes
             const getlvl = () => lvl;
             const getname = () => name;
 
@@ -23,7 +23,7 @@
                 health -= hit;
             };
 
-            //kanoume attack kapoion paixti mou exei xrisimopiisi ayto to function
+            //kanoume method attack kapoion paixti mou exei xrisimopiisi ayto to function
             const attack = function(enemy){
                 
                 if (enemy.getlvl() > lvl) {
@@ -40,8 +40,10 @@
             return {attack, getlvl, getname, damage};
         }
 
+        // ftiaxnoume objects
         const player1 = players('bob', 10);
         const badguy = players('carl', 5);
+        // kai xrisimopioume to method gia attack
         player1.attack(badguy); 
        
     </script>
