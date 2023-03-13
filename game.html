@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //ftiaxnei enan paixtei
+        const players = function(name, lvl){
+            // h zwh toy paixti einai *2 to lvl tou
+            let health = lvl*2;
+
+            // prepei na ftiaksoume methods gia na pernoume ta stixia pou xriazomaste
+            const getlvl = () => lvl;
+            const getname = () => name;
+
+            // ok edo apla xaneis zwh
+            const damage = function(hit){
+                health -= hit;
+            };
+
+            //kanoume attack kapoion paixti mou exei xrisimopiisi ayto to function
+            const attack = function(enemy){
+                
+                if (enemy.getlvl() > lvl) {
+                    damage(1);
+                    console.log(`thn gamises ${name} se efage`);
+                }
+
+                if (lvl > enemy.getlvl()){
+                    enemy.damage(1);
+                    console.log(`ton gamisame ton ${enemy.getname()} ade geia`);
+                }
+            }
+
+            return {attack, getlvl, getname, damage};
+        }
+
+        const player1 = players('bob', 10);
+        const badguy = players('carl', 5);
+        player1.attack(badguy); 
+       
+    </script>
+</body>
+</html>
